@@ -1,0 +1,19 @@
+@import 'colors';
+
+h1, h2, h3, h4, h5, h6 {
+    @include themed() {
+        color: t($fg)
+    }
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0;
+}

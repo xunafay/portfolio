@@ -1,0 +1,52 @@
+$sm: 600px;
+$md: 768px;
+$lg: 992px;
+$xlg: 1200px;
+
+@mixin small {
+    @media only screen and (max-width: $sm) {
+        @content;
+    }
+}
+
+@mixin medium {
+    @media only screen and (min-width: $sm) {
+        @content;
+    }
+}
+
+@mixin large {
+    @media only screen and (min-width: $lg) {
+        @content;
+    }
+}
+
+@mixin extra-large {
+    @media only screen and (min-width: $xlg) {
+        @content;
+    }
+}
+
+.hidden-sm {
+    @include small() {
+        display: none;
+    }
+}
+
+.hidden-md {
+    @include medium() {
+        display: none;
+    }
+}
+
+.hidden-lg {
+    @include large() {
+        display: none;
+    }
+}
+
+.hidden-xlg {
+    @include extra-large() {
+        display: none;
+    }
+}

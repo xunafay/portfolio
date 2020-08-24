@@ -1,0 +1,14 @@
+button {
+    &.reset {
+        padding: 6px;
+        background: none;
+        border: none;
+        margin: 0;
+        outline: none;
+        cursor: pointer;
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+}

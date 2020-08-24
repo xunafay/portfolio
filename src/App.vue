@@ -1,32 +1,47 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <style lang="scss">
-#app {
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/grid/_all.sass";
+@import "~bulma/sass/layout/_all.sass";
+@import "~bulma/sass/elements/container.sass";
+
+@import "./styles/button";
+@import "./styles/colors";
+@import "./styles/typing";
+@import "./styles/components";
+
+html,
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+body {
+  @include themed() {
+    background: t($bg);
+    color: t($fg);
   }
+}
+
+.feather-icon {
+  @include themed() {
+    filter: t(feather-icon);
+  }
+
+  width: 24px;
+  height: 24px;
+}
+
+a {
+  outline: none;
 }
 </style>

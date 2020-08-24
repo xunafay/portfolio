@@ -1,0 +1,46 @@
+$yellow: #ffd932;
+
+$bg: 'bg';
+$fg: 'fg';
+$accent: 'accent';
+$card-bg: 'card-bg';
+$feather-icon: 'feather-icon';
+$card-alternative: 'card-alternative';
+
+$themes: (
+    light: (
+        bg: #F3F4F6,
+        fg: #000,
+        accent: #0075FF,
+        card-bg: #fff,
+        feather-icon: invert(0),
+        card-alternative: #F3F4F6,
+    ),
+    dark: (
+        bg: #15161A,
+        fg: #fff,
+        accent: #00C3FF,
+        card-bg: #202125,
+        feather-icon: invert(1),
+        card-alternative: #2C2F31,
+    )
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+  
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
