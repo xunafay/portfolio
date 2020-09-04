@@ -59,7 +59,7 @@ export default Vue.extend({
       {
         title: 'Xuna Screeps',
         description: 'My from scratch implementation of a screeps AI',
-        tech: 'Rust',
+        tech: 'Typescript',
         links: [{ type: 'github', url: 'https://github.com/xunafay/xuna-screeps' }],
       },
     ] as Array<ProjectType>,
