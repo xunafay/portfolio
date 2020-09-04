@@ -28,7 +28,7 @@ jobs:
       run: docker push registry.digitalocean.com/hanaw/portfolio
 
     - name: Update deployment file
-      run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.digitalocean.com/hanaw/portfolio:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
+      run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|registry.digitalocean.com/hanaw/portfolio:.*|registry.digitalocean.com/hanaw/portfolio:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
 
     - name: Save DigitalOcean kubeconfig
       run: doctl kubernetes cluster kubeconfig save k8s-hana
