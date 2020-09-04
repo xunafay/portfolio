@@ -31,7 +31,7 @@ jobs:
       run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|registry.digitalocean.com/hanaw/portfolio:'${TAG}'|' $GITHUB_WORKSPACE/config/deployment.yml
 
     - name: Save DigitalOcean kubeconfig
-      run: doctl kubernetes cluster kubeconfig save k8s-portfolio
+      run: doctl kubernetes cluster kubeconfig save k8s-hana
 
     - name: Deploy to DigitalOcean Kubernetes
       run: kubectl apply -f $GITHUB_WORKSPACE/config/deployment.yml
