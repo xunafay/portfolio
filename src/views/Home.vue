@@ -74,7 +74,7 @@ export default Vue.extend({
 @import "../styles/colors";
 @import "../styles/responsive";
 .content {
-  margin: 0 48px;
+  margin: 0 10%;
 }
 
 .title {
