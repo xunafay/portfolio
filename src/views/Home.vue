@@ -15,6 +15,9 @@
             a.social(href="https://github.com/xunafay" target="_blank")
               img.feather-icon(src="../assets/svg/github.svg")
               span xunafay
+            a.social(href="mailto:me@xunafay.io")
+              img.feather-icon(src="../assets/svg/mail.svg")
+              span me@xunafay.io
             .social
               img.feather-icon(src="../assets/svg/map-pin.svg")
               span Belgium, Antwerp
