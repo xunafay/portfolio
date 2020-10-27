@@ -8,9 +8,7 @@
       .wrapper
         .profile
           .pic
-            .card.profile-picture
-              img(src="../assets/profile.png")
-              img.shadow(src="../assets/profile.png")
+            img.card(src="../assets/profile.png")
           .socials
             a.social(href="https://github.com/xunafay" target="_blank")
               img.feather-icon(src="../assets/svg/github.svg")
@@ -75,6 +73,14 @@ export default Vue.extend({
 @import "../styles/responsive";
 .content {
   margin: 0 10%;
+}
+
+.pic {
+  img.card {
+    box-shadow: none;
+    width: 224px;
+    height: 224px;
+  }
 }
 
 .title {

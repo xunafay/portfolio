@@ -1,14 +1,14 @@
 <template lang="pug">
   .project
-    .card.small.float-top
-      .tag {{project.tech}}
     .card
       h2 {{project.title}}
       | {{project.description}}
-    .card.small.float-bottom(v-if="project.links.length > 0")
-      a(v-for="link in project.links" :key="link.url" :href="link.url" target="_blank")
-        img.feather-icon(v-if="link.type == 'github'" src="../assets/svg/github.svg")
-        img.feather-icon(v-if="link.type == 'web'" src="../assets/svg/globe.svg")
+      .bottom
+        .tag {{project.tech}}
+        .links
+          a(v-for="link in project.links" :key="link.url" :href="link.url" target="_blank")
+            img.feather-icon(v-if="link.type == 'github'" src="../assets/svg/github.svg")
+            img.feather-icon(v-if="link.type == 'web'" src="../assets/svg/globe.svg")
 </template>
 
 <script lang="ts">
@@ -54,6 +54,20 @@ export default Vue.extend({
   align-items: center;
   flex-direction: column;
   text-align: center;
+
+  .bottom {
+    margin-top: 8px;
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+
+    .links {
+      &>* {
+        margin: 0 4px;
+      }
+    }
+  }
 
   &.small {
     padding: 7px 17px

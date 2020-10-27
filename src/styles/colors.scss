@@ -6,23 +6,26 @@ $accent: 'accent';
 $card-bg: 'card-bg';
 $feather-icon: 'feather-icon';
 $card-alternative: 'card-alternative';
+$card-shadow: 'card-shadow';
 
 $themes: (
     light: (
-        bg: #F3F4F6,
+        bg: #ECF0F3,
         fg: #000,
         accent: #0075FF,
-        card-bg: #fff,
+        card-bg: #EFF3F6,
         feather-icon: invert(0),
         card-alternative: #F3F4F6,
+        card-shadow: (18px 18px 30px #D1D9E6, -18px -18px 30px #ffffff),
     ),
     dark: (
         bg: #15161A,
         fg: #fff,
         accent: #00C3FF,
-        card-bg: #202125,
+        card-bg: #17181C,
         feather-icon: invert(1),
         card-alternative: #2C2F31,
+        card-shadow: (18px 18px 20px #0e0e11, -18px -18px 20px #1a1c22),
     )
 );
 
