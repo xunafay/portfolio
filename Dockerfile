@@ -1,5 +1,6 @@
 # build stage
 FROM node:alpine as build-stage
+RUN apk --no-cache add g++ gcc libgcc libstdc++ linux-headers make python
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
