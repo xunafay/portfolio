@@ -1,0 +1,25 @@
+steps:
+  # pull latest in order to use cached container layers
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    docker pull gcr.io/${_CLOUDSDK_CONTAINER_PROJECT_ID}/${_IMAGE_NAME}:latest || exit 0
+  # build the container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "gcr.io/${_CLOUDSDK_CONTAINER_PROJECT_ID}/${_IMAGE_NAME}:$SHORT_SHA", "-t", "gcr.io/${_CLOUDSDK_CONTAINER_PROJECT_ID}/${_IMAGE_NAME}:latest", "."]
+  # push container image
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/${_CLOUDSDK_CONTAINER_PROJECT_ID}/${_IMAGE_NAME}:$SHORT_SHA"]
+  # push as latest
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/${_CLOUDSDK_CONTAINER_PROJECT_ID}/${_IMAGE_NAME}:latest"]
+  # deploy container image to GKE
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=config/deployment.yaml
+  - --image=gcr.io/${_CLOUDSDK_CONTAINER_PROJECT_ID}/${_IMAGE_NAME}:$SHORT_SHA
+  - --location=${_CLOUDSDK_COMPUTE_ZONE}
+  - --cluster=${_CLOUDSDK_CONTAINER_CLUSTER}

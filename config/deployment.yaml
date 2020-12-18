@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: registry.digitalocean.com/hanaw/portfolio:0.0.4
+        image: "gcr.io/personal-270617/portfolio"
         resources:
           limits:
             memory: "52Mi"
